@@ -14,13 +14,17 @@
 
 ## _Стек технологій:_
 
-- React
-- TypeScript
-- Redux
-- Redux Thunk
-- OpenWeatherMap API
-- Styled Components
+-   React
+-   TypeScript
+-   Redux
+-   Redux Thunk
+-   OpenWeatherMap API
+-   Styled Components
 
 ## _Блок-схема:_
 
 ![Flowchart](./assets/flowcharts/flowchart.png)
+
+## _Timeline:_
+
+![Timeline](./assets/timelines/timeline.png)
