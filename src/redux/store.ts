@@ -2,7 +2,7 @@ import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit'
 import { connectRouter, routerMiddleware } from 'connected-react-router'
 import { createBrowserHistory } from 'history'
 
-import { weatherSlice } from '~/screens/weather/redux'
+import { forecastSlice } from '~/screens/forecast/redux'
 
 // browser history
 export const history = createBrowserHistory()
@@ -11,7 +11,7 @@ export const history = createBrowserHistory()
 export const store = configureStore({
   reducer: {
     router: connectRouter(history),
-    weather: weatherSlice.reducer,
+    forecast: forecastSlice.reducer,
   },
 
   middleware: [...getDefaultMiddleware(), routerMiddleware(history)],
