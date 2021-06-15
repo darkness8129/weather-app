@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { Coordinates } from '../types'
+import { Coordinates, CityForecastTypes } from '../types'
 
 // initial state of weatherSlice
 const initialState = {
@@ -16,7 +16,7 @@ const initialState = {
 
   city: {
     forecast: null as any,
-    days: 1,
+    type: CityForecastTypes.Current,
     loading: false,
     error: '',
     search: '',
@@ -64,8 +64,8 @@ export const forecastSlice = createSlice({
     },
 
     // set forecast days
-    setDays: (state, action: PayloadAction<number>) => {
-      state.city.days = action.payload
+    setCityForecastType: (state, action: PayloadAction<CityForecastTypes>) => {
+      state.city.type = action.payload
     },
 
     // start getting weather by city name

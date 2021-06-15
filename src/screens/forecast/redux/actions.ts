@@ -2,7 +2,7 @@ import { AppDispatch } from '~/redux'
 import { getErrorMessage } from '~/utils'
 import { API_URL, API_KEY } from '~/config'
 
-import { Coordinates } from '../types'
+import { Coordinates, CityForecastTypes } from '../types'
 import { forecastSlice } from './slice'
 
 // getWeatherByCoordinates used for getting weather by coordinates
@@ -33,7 +33,7 @@ export const getWeatherByCoordinates =
 
 // getWeatherByCityName used for getting weather by city name
 export const getWeatherByCityName =
-  (city: string, days: number): any =>
+  (city: string, type: CityForecastTypes): any =>
   async (dispatch: AppDispatch) => {
     // start getting weather
     dispatch(forecastSlice.actions.getWeatherCity())
@@ -42,11 +42,19 @@ export const getWeatherByCityName =
       // get weather by city name request
       const response = await fetch(
         `${API_URL}/${
-          days === 1 ? 'weather' : 'forecast'
-        }/?q=${city}&units=metric&APPID=${API_KEY}${days === 1 ? '' : '&cnt=5'}`,
+          type === CityForecastTypes.Current ? 'weather' : 'forecast'
+        }/?q=${city}&units=metric&APPID=${API_KEY}${
+          type === CityForecastTypes.Current ? '' : '&cnt=5'
+        }`,
       )
       const weather = await response.json()
-      console.debug(weather)
+
+      console.log(weather)
+
+      // throw error
+      if (!response.ok) {
+        throw new Error(weather.message)
+      }
 
       // get weather by city name succeeded
       dispatch(forecastSlice.actions.getWeatherCitySuccess(weather))
@@ -55,6 +63,7 @@ export const getWeatherByCityName =
 
       // getting weather failed
       console.error(`failed to get weather by city name`, errorMessage)
+      // console.log(errorMessage)
       dispatch(forecastSlice.actions.getWeatherCityFailure(String(errorMessage)))
     }
   }

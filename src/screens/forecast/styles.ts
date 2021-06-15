@@ -35,42 +35,4 @@ export const styles = {
 
     border-right: 1px solid ${Colors.LIGHT_11};
   `,
-
-  city: css`
-    width: 50%;
-
-    padding: 20px;
-
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-  `,
-
-  subtitle: css`
-    color: ${Colors.DARK_2};
-  `,
-
-  search: {
-    container: css`
-      width: 100%;
-
-      display: flex;
-      align-items: center;
-    `,
-
-    radio: css`
-      width: 20%;
-      margin-right: 20px;
-    `,
-
-    input: css`
-      width: 50%;
-
-      margin-right: 20px;
-    `,
-
-    button: css`
-      width: 30%;
-    `,
-  },
 }

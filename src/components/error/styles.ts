@@ -12,11 +12,8 @@ export const styles = {
     font-family: Montserrat, sans-serif;
     font-style: normal;
     font-weight: 500;
-    font-size: 14px;
-    line-height: 12px;
+    font-size: 18px;
+    line-height: 18px;
     color: ${Colors.ERROR_1};
-
-    background: ${Colors.ERROR_2};
-    border-radius: 8px;
   `,
 }
