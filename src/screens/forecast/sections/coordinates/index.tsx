@@ -12,32 +12,22 @@ export const Coordinates: FC = () => {
   // get state and actions
   const dispatch = useAppDispatch()
   const { coordinates } = useAppSelector((t) => t.forecast)
-  const { forecast, loading, error, type } = coordinates
-  const { latitude, longitude } = coordinates.coordinates
+  const { coordinates: userCoordinates } = useAppSelector((t) => t.coordinates)
 
-  // get coordinates
-  useEffect(() => {
-    navigator.geolocation.getCurrentPosition((position) =>
-      dispatch(
-        forecastSlice.actions.setCoordinates({
-          latitude: position.coords.latitude,
-          longitude: position.coords.longitude,
-        }),
-      ),
-    )
-  }, [])
+  const { forecast, loading, error, type } = coordinates
+  const { longitude, latitude } = userCoordinates
 
   // if coordinates exist - get weather by coordinates
   useEffect(() => {
     if (latitude && longitude) {
-      dispatch(getWeatherByCoordinates(coordinates.coordinates, type))
+      dispatch(getWeatherByCoordinates(userCoordinates, type))
     }
   }, [latitude, longitude])
 
   // get forecast when type changed
   useEffect(() => {
     if (latitude && longitude) {
-      dispatch(getWeatherByCoordinates(coordinates.coordinates, type))
+      dispatch(getWeatherByCoordinates(userCoordinates, type))
     }
   }, [type])
 
@@ -85,6 +75,12 @@ export const Coordinates: FC = () => {
               </div>
             )}
           </Fragment>
+        )}
+
+        {!loading && !error && !latitude && !longitude && (
+          <div css={styles.noWeatherHistory}>
+            WeatherApp needs access to your geolocation...
+          </div>
         )}
 
         {loading && <Loader type="dark" />}

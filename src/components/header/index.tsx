@@ -30,7 +30,7 @@ export const Header: FC = () => {
           to="/selected"
           css={[styles.item.base, pathname === '/selected' && styles.item.active]}
         >
-          Selected cities
+          Selected forecast
         </Link>
       </div>
     </div>

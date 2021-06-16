@@ -52,4 +52,8 @@ export const styles = {
     display: flex;
     justify-content: flex-start;
   `,
+
+  noWeatherHistory: css`
+    color: ${Colors.DARK_7};
+  `,
 }

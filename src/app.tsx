@@ -1,11 +1,28 @@
-import { FC, Fragment } from 'react'
+import { FC, Fragment, useEffect } from 'react'
 import { Switch, Route, Redirect } from 'react-router-dom'
 
 import { Header } from './components'
-import { ForecastScreen, HistoryScreen, SelectedScreen } from './screens'
+import { useAppDispatch } from './redux'
+import { coordinatesSlice } from './redux/coordinatesSlice'
+import { ForecastScreen, WeatherHistoryScreen, SelectedScreen } from './screens'
 import { styles } from './styles'
 
 export const App: FC = () => {
+  // get dispatch
+  const dispatch = useAppDispatch()
+
+  // get coordinates
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition((position) =>
+      dispatch(
+        coordinatesSlice.actions.setCoordinates({
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude,
+        }),
+      ),
+    )
+  }, [])
+
   return (
     <Fragment>
       <Header />
@@ -16,7 +33,7 @@ export const App: FC = () => {
           <Route path="/forecast" component={ForecastScreen} exact />
 
           {/* Weather  History Screen */}
-          <Route path="/history" component={HistoryScreen} exact />
+          <Route path="/history" component={WeatherHistoryScreen} exact />
 
           {/* Selected  weather Screen */}
           <Route path="/selected" component={SelectedScreen} exact />

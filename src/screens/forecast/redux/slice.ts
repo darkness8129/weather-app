@@ -1,16 +1,12 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { Coordinates, CityForecastTypes, CoordinatesForecastTypes } from '../types'
+import { CityForecastTypes, CoordinatesForecastTypes } from '../types'
 
 // initial state of weatherSlice
 const initialState = {
   coordinates: {
     forecast: null as any,
-    coordinates: {
-      latitude: null,
-      longitude: null,
-    } as Coordinates,
     type: CoordinatesForecastTypes.Current,
-    loading: true,
+    loading: false,
     error: '',
   },
 
@@ -28,11 +24,6 @@ export const forecastSlice = createSlice({
   name: 'weather',
   initialState,
   reducers: {
-    // set coordinates
-    setCoordinates: (state, action: PayloadAction<Coordinates>) => {
-      state.coordinates.coordinates = action.payload
-    },
-
     // start getting weather by coordinates
     getCoordinatesWeather: (state) => {
       state.coordinates.error = ''

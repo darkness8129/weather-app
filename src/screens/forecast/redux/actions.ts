@@ -1,8 +1,9 @@
 import { AppDispatch } from '~/redux'
 import { getErrorMessage } from '~/utils'
 import { API_URL, API_KEY } from '~/config'
+import { Coordinates } from '~/types'
 
-import { Coordinates, CityForecastTypes, CoordinatesForecastTypes } from '../types'
+import { CityForecastTypes, CoordinatesForecastTypes } from '../types'
 import { forecastSlice } from './slice'
 
 // getWeatherByCoordinates used for getting weather by coordinates

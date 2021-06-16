@@ -3,6 +3,9 @@ import { connectRouter, routerMiddleware } from 'connected-react-router'
 import { createBrowserHistory } from 'history'
 
 import { forecastSlice } from '~/screens/forecast/redux'
+import { weatherHistorySlice } from '~/screens/history/redux'
+
+import { coordinatesSlice } from './coordinatesSlice'
 
 // browser history
 export const history = createBrowserHistory()
@@ -12,6 +15,8 @@ export const store = configureStore({
   reducer: {
     router: connectRouter(history),
     forecast: forecastSlice.reducer,
+    coordinates: coordinatesSlice.reducer,
+    weatherHistory: weatherHistorySlice.reducer,
   },
 
   middleware: [...getDefaultMiddleware(), routerMiddleware(history)],
