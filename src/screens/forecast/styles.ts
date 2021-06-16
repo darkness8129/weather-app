@@ -12,7 +12,7 @@ export const styles = {
 
   forecast: css`
     width: 100%;
-    height: calc(100vh - 150px);
+    height: calc(100vh - 160px);
 
     box-sizing: border-box;
 
@@ -23,16 +23,5 @@ export const styles = {
     border: 1px solid ${Colors.LIGHT_11};
     background: ${Colors.LIGHT_5};
     box-shadow: 0px 2px 10px ${Colors.LIGHT_11};
-  `,
-
-  coordinates: css`
-    width: 50%;
-
-    padding: 20px;
-
-    display: flex;
-    justify-content: center;
-
-    border-right: 1px solid ${Colors.LIGHT_11};
   `,
 }

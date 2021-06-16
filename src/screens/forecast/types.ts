@@ -7,5 +7,12 @@ export interface Coordinates {
 // interface for city forecast types
 export enum CityForecastTypes {
   Current = 'Current weather',
-  Days = '5 Hours',
+  Hours = '12 Hours',
+}
+
+// interface for coordinates forecast types
+export enum CoordinatesForecastTypes {
+  Current = 'Current weather',
+  Hours = '5 Hours',
+  Days = '7 Days',
 }

@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { Coordinates, CityForecastTypes } from '../types'
+import { Coordinates, CityForecastTypes, CoordinatesForecastTypes } from '../types'
 
 // initial state of weatherSlice
 const initialState = {
@@ -9,7 +9,7 @@ const initialState = {
       latitude: null,
       longitude: null,
     } as Coordinates,
-    type: 'current',
+    type: CoordinatesForecastTypes.Current,
     loading: true,
     error: '',
   },
@@ -33,27 +33,36 @@ export const forecastSlice = createSlice({
       state.coordinates.coordinates = action.payload
     },
 
-    // start getting weather
-    getWeather: (state) => {
+    // start getting weather by coordinates
+    getCoordinatesWeather: (state) => {
       state.coordinates.error = ''
       state.coordinates.loading = true
     },
 
-    // getting weather succeeded
-    getWeatherSuccess: (state, action: PayloadAction<any>) => {
+    // getting weather by coordinates succeeded
+    getCoordinatesWeatherSuccess: (state, action: PayloadAction<any>) => {
       state.coordinates.loading = false
       state.coordinates.error = ''
       state.coordinates.forecast = action.payload
     },
 
-    // getting weather failed
-    getWeatherFailure: (state, action: PayloadAction<string>) => {
+    // getting weather by coordinates failed
+    getCoordinatesWeatherFailure: (state, action: PayloadAction<string>) => {
       state.coordinates.loading = false
       state.coordinates.error = action.payload
       state.coordinates.forecast = null
     },
 
-    // ------------------
+    // set coordinates weather type
+    setCoordinatesForecastType: (
+      state,
+      action: PayloadAction<CoordinatesForecastTypes>,
+    ) => {
+      state.coordinates.type = action.payload
+
+      // clear error
+      state.city.error = ''
+    },
 
     // set city search value
     setSearch: (state, action: PayloadAction<string>) => {
@@ -63,9 +72,12 @@ export const forecastSlice = createSlice({
       state.city.error = ''
     },
 
-    // set forecast days
+    // set city weather type
     setCityForecastType: (state, action: PayloadAction<CityForecastTypes>) => {
       state.city.type = action.payload
+
+      // clear error
+      state.city.error = ''
     },
 
     // start getting weather by city name

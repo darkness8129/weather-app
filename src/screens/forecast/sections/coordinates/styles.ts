@@ -10,33 +10,12 @@ export const styles = {
     display: flex;
     align-items: center;
     flex-direction: column;
+
+    border-right: 1px solid ${Colors.LIGHT_11};
   `,
 
   subtitle: css`
     color: ${Colors.DARK_2};
-  `,
-
-  search: {
-    container: css`
-      width: 100%;
-
-      display: flex;
-      align-items: center;
-    `,
-
-    input: css`
-      width: 50%;
-
-      margin: 0 20px;
-    `,
-
-    button: css`
-      width: 30%;
-    `,
-  },
-
-  noWeather: css`
-    color: ${Colors.DARK_7};
   `,
 
   forecast: css`
@@ -44,9 +23,14 @@ export const styles = {
 
     display: flex;
     align-items: center;
+
+    overflow: hidden;
   `,
 
   cards: css`
+    height: 100%;
+    overflow: scroll;
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -60,5 +44,12 @@ export const styles = {
         margin-right: 0;
       }
     }
+  `,
+
+  buttons: css`
+    width: 100%;
+
+    display: flex;
+    justify-content: flex-start;
   `,
 }
