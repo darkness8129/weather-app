@@ -17,6 +17,40 @@ export const spinning = keyframes`
   }
 `
 
+// colors for whole app
+export enum Colors {
+  DARK_1 = 'rgba(21, 31, 38, 0.75)',
+  DARK_2 = 'rgba(21, 31, 38, 0.85)',
+  DARK_3 = 'rgba(21, 31, 38, 0.3)',
+  DARK_4 = '#151f26',
+  DARK_5 = 'rgba(21, 31, 38, 0.35)',
+  DARK_6 = 'rgba(21, 31, 38, 0.4)',
+  DARK_7 = '#73797d',
+  DARK_8 = '#8a8f93',
+
+  LIGHT_1 = '#ffffff',
+  LIGHT_2 = 'rgba(21, 31, 38, 0.03)',
+  LIGHT_3 = 'rgba(255, 255, 255, 0.05)',
+  LIGHT_4 = 'rgba(255, 255, 255, 0.1)',
+  LIGHT_5 = 'rgba(255, 255, 255, 0.85)',
+  LIGHT_6 = 'rgba(255, 255, 255, 0.3)',
+  LIGHT_7 = 'rgba(248, 248, 248, 0.5)',
+  LIGHT_8 = '#fbfbfb',
+  LIGHT_9 = 'rgba(21, 31, 38, 0.01)',
+  LIGHT_10 = '#f6f7fa',
+  LIGHT_11 = 'rgba(21, 31, 38, 0.1)',
+  LIGHT_12 = 'rgba(21, 31, 38, 0.03)',
+  LIGHT_13 = 'rgba(0, 0, 0, 0.03)',
+  LIGHT_15 = '#eff1f5',
+
+  ACCENT_1 = '#8429f2',
+  ACCENT_2 = '#903ff2',
+  ACCENT_3 = '#a869f5',
+
+  ERROR_1 = '#ef5350',
+  ERROR_2 = '#ffcdd2',
+}
+
 // global styles
 export const global = css`
   * {
@@ -28,8 +62,7 @@ export const global = css`
     padding: 0px;
     margin: 0px;
     box-sizing: border-box;
-    background-color: #ffffff;
-    background: #f8f8f8;
+    background: #ffffff;
   }
   input[type='text'] {
     -webkit-appearance: none;
