@@ -16,6 +16,7 @@ export const styles = {
     font-size: 14px;
     line-height: 14px;
     color: ${Colors.DARK_2};
+    white-space: nowrap;
 
     background: ${Colors.LIGHT_1};
     border-bottom: 1px solid ${Colors.LIGHT_11};

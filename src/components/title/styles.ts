@@ -1,5 +1,5 @@
 import { css } from '@emotion/react'
-import { Colors } from '~/emotion'
+import { Colors, breakpoints } from '~/emotion'
 
 export const styles = {
   title: css`
@@ -14,5 +14,10 @@ export const styles = {
     line-height: 40px;
     color: ${Colors.DARK_2};
     text-shadow: 3px 1px 0px ${Colors.DARK_5};
+
+    ${breakpoints.mobile} {
+      font-size: 30px;
+      line-height: 30px;
+    }
   `,
 }

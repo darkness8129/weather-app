@@ -6,7 +6,7 @@ export const styles = {
     width: 100%;
     height: 100%;
 
-    padding: 0 20px;
+    padding: 0 20px 20px 20px;
     box-sizing: border-box;
   `,
 

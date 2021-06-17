@@ -6,6 +6,7 @@ export const styles = {
     height: 55px;
     box-sizing: border-box;
     padding: 14px 16px;
+    overflow: auto;
 
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;

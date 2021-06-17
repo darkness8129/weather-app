@@ -35,7 +35,7 @@ export const WeatherHistoryScreen: FC = () => {
 
   return (
     <div css={styles.container}>
-      <Title text="Weather history" />
+      <Title text="Your Weather history" />
 
       <div css={styles.table}>
         <Header />
