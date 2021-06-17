@@ -13,14 +13,16 @@ interface CardProps {
 export const Card: FC<CardProps> = ({ type, weather, format }) => {
   // days and hours
   const formatDt = (milliseconds: number): string =>
-    moment(new Date(milliseconds * 1000)).format(format === 'days' ? 'll' : 'LT')
+    moment(new Date(milliseconds * 1000)).format(
+      format === 'days' ? 'DD MMMM, YYYY' : 'HH:mm',
+    )
 
   // format current date
-  const currentDate = `${moment().format('dddd')} - ${moment().format('LL')}`
+  const currentDate = `${moment().format('dddd - DD MMMM, YYYY')}`
 
   // format sunrise and sunset
   const formatToLocalTime = (milliseconds: number): string =>
-    new Date(milliseconds * 1000).toLocaleTimeString('en-IN')
+    moment(new Date(milliseconds * 1000)).format('HH:mm')
 
   return (
     <div css={[styles.container.base, type === 'big' && styles.container.big]}>

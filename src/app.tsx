@@ -4,7 +4,7 @@ import { Switch, Route, Redirect } from 'react-router-dom'
 import { Header } from './components'
 import { useAppDispatch } from './redux'
 import { coordinatesSlice } from './redux/coordinatesSlice'
-import { ForecastScreen, WeatherHistoryScreen, SelectedScreen } from './screens'
+import { ForecastScreen, WeatherHistoryScreen } from './screens'
 import { styles } from './styles'
 
 export const App: FC = () => {
@@ -34,9 +34,6 @@ export const App: FC = () => {
 
           {/* Weather  History Screen */}
           <Route path="/history" component={WeatherHistoryScreen} exact />
-
-          {/* Selected  weather Screen */}
-          <Route path="/selected" component={SelectedScreen} exact />
 
           {/* Redirect to Weather Screen */}
           <Redirect from="*" to="/forecast" />

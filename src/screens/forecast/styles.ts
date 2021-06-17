@@ -16,12 +16,17 @@ export const styles = {
 
     box-sizing: border-box;
 
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 
     border-radius: 10px;
     border: 1px solid ${Colors.LIGHT_11};
     background: ${Colors.LIGHT_5};
     box-shadow: 0px 2px 10px ${Colors.LIGHT_11};
+
+    @media (max-width: 760px) {
+      height: 100%;
+      grid-template-columns: 1fr;
+    }
   `,
 }

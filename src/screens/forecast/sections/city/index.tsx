@@ -1,12 +1,12 @@
 import { FC, Fragment, useEffect } from 'react'
 
 import { useAppDispatch, useAppSelector } from '~/redux'
-import { Error, Loader, Input, Button, RadioButtons } from '~/components'
+import { Error, Loader, Input, Button } from '~/components'
 
 import { styles } from './styles'
 import { CityForecastTypes } from '../../types'
 import { forecastSlice, getWeatherByCityName } from '../../redux'
-import { Card } from '../../components'
+import { Card, RadioButtons } from '../../components'
 
 export const City: FC = () => {
   // get state and actions
@@ -32,17 +32,18 @@ export const City: FC = () => {
           onSelect={(type: CityForecastTypes) =>
             dispatch(forecastSlice.actions.setCityForecastType(type))
           }
+          extendStyle={styles.search.radio}
         />
 
         <Input
-          extendStyle={styles.search.input}
+          // extendStyle={styles.search.input}
           value={search}
           type="text"
           onChange={(e) => dispatch(forecastSlice.actions.setSearch(e.target.value))}
         />
         <Button
           text="Show weather"
-          extendStyle={styles.search.button}
+          // extendStyle={styles.search.button}
           onClick={() => dispatch(getWeatherByCityName(search, type))}
           disabled={!search || !!error || loading}
         />

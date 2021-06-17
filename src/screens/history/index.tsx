@@ -21,6 +21,9 @@ export const WeatherHistoryScreen: FC = () => {
     }
   }, [latitude, longitude])
 
+  // reverse of weather history array
+  const reversedArr = [...(weatherHistory?.hourly || [])].reverse()
+
   return (
     <div css={styles.container}>
       <Title text="Weather history" />
@@ -29,7 +32,7 @@ export const WeatherHistoryScreen: FC = () => {
         <Header />
 
         <div css={styles.tableBody.container}>
-          {weatherHistory?.hourly.map((weather: any) => (
+          {reversedArr.map((weather: any) => (
             <Item weather={weather} key={weather.dt} />
           ))}
 

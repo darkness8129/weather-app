@@ -3,7 +3,8 @@ import { Colors } from '~/emotion'
 
 export const styles = {
   container: css`
-    width: 50%;
+    width: 100%;
+    box-sizing: border-box;
 
     padding: 20px;
 
@@ -20,18 +21,19 @@ export const styles = {
     container: css`
       width: 100%;
 
-      display: flex;
-      align-items: center;
+      display: grid;
+      grid-template-columns: 1fr 2fr 1fr;
+      gap: 20px;
+
+      @media (max-width: 1020px) {
+        grid-template-columns: 2fr 1fr;
+      }
     `,
 
-    input: css`
-      width: 50%;
-
-      margin: 0 20px;
-    `,
-
-    button: css`
-      width: 30%;
+    radio: css`
+      @media (max-width: 1020px) {
+        grid-column: -1/1;
+      }
     `,
   },
 
@@ -41,30 +43,22 @@ export const styles = {
 
   forecast: css`
     height: 100%;
+    min-height: 400px;
 
     display: flex;
     align-items: center;
-
-    overflow: hidden;
   `,
 
   cards: css`
-    height: 100%;
+    height: calc(100vh - 450px);
+    overflow: auto;
+
+    padding: 20px 0;
 
     display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-
-    overflow: scroll;
-
-    & > div {
-      margin: 0 20px 20px 0;
-
-      &:nth-of-type(3),
-      &:nth-of-type(5) {
-        margin-right: 0;
-      }
-    }
+    gap: 20px;
   `,
 }

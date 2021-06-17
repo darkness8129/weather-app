@@ -8,7 +8,7 @@ export const styles = {
       min-width: 160px;
       padding: 10px 20px;
 
-      box-shadow: 0px 2px 5px ${Colors.LIGHT_11};
+      box-shadow: 0px 0px 7px ${Colors.LIGHT_11};
 
       p {
         margin: 0;

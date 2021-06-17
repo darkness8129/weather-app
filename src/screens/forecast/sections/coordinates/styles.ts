@@ -3,7 +3,8 @@ import { Colors } from '~/emotion'
 
 export const styles = {
   container: css`
-    width: 50%;
+    width: 100%;
+    box-sizing: border-box;
 
     padding: 20px;
 
@@ -12,6 +13,11 @@ export const styles = {
     flex-direction: column;
 
     border-right: 1px solid ${Colors.LIGHT_11};
+
+    @media (max-width: 760px) {
+      border-right: none;
+      border-bottom: 1px solid ${Colors.LIGHT_11};
+    }
   `,
 
   subtitle: css`
@@ -20,30 +26,24 @@ export const styles = {
 
   forecast: css`
     height: 100%;
+    min-height: 400px;
 
     display: flex;
     align-items: center;
-
-    overflow: hidden;
   `,
 
   cards: css`
-    height: 100%;
-    overflow: scroll;
+    height: calc(100vh - 450px);
+    overflow: auto;
+
+    padding: 20px 0;
 
     display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
 
-    & > div {
-      margin: 0 20px 20px 0;
-
-      &:nth-of-type(3),
-      &:nth-of-type(5) {
-        margin-right: 0;
-      }
-    }
+    gap: 20px;
   `,
 
   buttons: css`

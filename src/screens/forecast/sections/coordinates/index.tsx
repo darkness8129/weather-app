@@ -1,12 +1,12 @@
 import { FC, Fragment, useEffect } from 'react'
 
 import { useAppDispatch, useAppSelector } from '~/redux'
-import { Error, Loader, RadioButtons } from '~/components'
+import { Error, Loader } from '~/components'
 
 import { styles } from './styles'
 import { CoordinatesForecastTypes } from '../../types'
 import { forecastSlice, getWeatherByCoordinates } from '../../redux'
-import { Card } from '../../components'
+import { Card, RadioButtons } from '../../components'
 
 export const Coordinates: FC = () => {
   // get state and actions

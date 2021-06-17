@@ -18,6 +18,7 @@ export const styles = {
 
     background: ${Colors.LIGHT_7};
     border: 1px solid ${Colors.LIGHT_11};
+    border-radius: 10px;
   `,
 
   tableBody: {
@@ -25,6 +26,8 @@ export const styles = {
       height: calc(100vh - 217px);
       overflow: auto;
       transition: 0.3s linear opacity;
+
+      border-radius: 0 0 10px 10px;
     `,
 
     center: css`

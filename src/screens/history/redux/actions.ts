@@ -22,7 +22,6 @@ export const getWeatherHistory =
         }&units=metric&APPID=${API_KEY}&dt=${Math.floor(date.valueOf() / 1000)}`,
       )
       const weatherHistory = await response?.json()
-      console.log(weatherHistory)
 
       // get weather history succeeded
       dispatch(weatherHistorySlice.actions.getWeatherHistorySuccess(weatherHistory))
