@@ -6,18 +6,18 @@ export const styles = {
     width: 100%;
     height: 100%;
 
-    padding: 0 20px;
+    padding: 0 20px 20px 20px;
     box-sizing: border-box;
   `,
 
   table: css`
-    position: relative;
     width: 100%;
     font-family: Montserrat, sans-serif;
     font-style: normal;
 
     background: ${Colors.LIGHT_7};
     border: 1px solid ${Colors.LIGHT_11};
+    border-radius: 10px;
   `,
 
   tableBody: {
@@ -25,6 +25,8 @@ export const styles = {
       height: calc(100vh - 217px);
       overflow: auto;
       transition: 0.3s linear opacity;
+
+      border-radius: 0 0 10px 10px;
     `,
 
     center: css`
@@ -36,8 +38,4 @@ export const styles = {
       align-items: center;
     `,
   },
-
-  noWeatherHistory: css`
-    color: ${Colors.DARK_7};
-  `,
 }

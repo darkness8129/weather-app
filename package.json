@@ -20,10 +20,12 @@
     "@emotion/react": "^11.1.5",
     "@reduxjs/toolkit": "^1.6.0",
     "connected-react-router": "^6.9.1",
+    "hamburger-react": "^2.4.1",
     "history": "^4.10.1",
     "moment": "^2.29.1",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
+    "react-icons": "^4.2.0",
     "react-redux": "^7.2.4",
     "react-router-dom": "^5.2.0"
   },

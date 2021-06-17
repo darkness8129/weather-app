@@ -6,7 +6,7 @@ const initialState = {
   coordinates: {
     forecast: null as any,
     type: CoordinatesForecastTypes.Current,
-    loading: false,
+    loading: true,
     error: '',
   },
 
@@ -42,6 +42,11 @@ export const forecastSlice = createSlice({
       state.coordinates.loading = false
       state.coordinates.error = action.payload
       state.coordinates.forecast = null
+    },
+
+    // stop loading getting weather by coordinates
+    getCoordinatesWeatherStopLoading: (state) => {
+      state.coordinates.loading = false
     },
 
     // set coordinates weather type

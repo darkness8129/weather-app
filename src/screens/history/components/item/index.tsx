@@ -11,7 +11,7 @@ interface ItemProps {
 export const Item: FC<ItemProps> = ({ weather }) => {
   // days and hours
   const formatDaysAndHours = (milliseconds: number): string =>
-    moment(new Date(milliseconds * 1000)).format('LLL')
+    moment(new Date(milliseconds * 1000)).format('DD MMMM YYYY, HH:mm')
 
   return (
     <div css={styles.container}>
@@ -23,7 +23,7 @@ export const Item: FC<ItemProps> = ({ weather }) => {
       <span>{weather?.temp.toFixed(1)} &deg;C</span>
       <span>{weather?.feels_like.toFixed(1)} &deg;C</span>
       <span>{weather?.humidity} %</span>
-      <span>{(weather.pressure / 1.332).toFixed(0)} mm Hg</span>
+      <span>{Math.round(weather.pressure / 1.332)} mm Hg</span>
     </div>
   )
 }

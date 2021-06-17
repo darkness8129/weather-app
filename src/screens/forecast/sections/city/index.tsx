@@ -1,12 +1,13 @@
 import { FC, Fragment, useEffect } from 'react'
 
 import { useAppDispatch, useAppSelector } from '~/redux'
-import { Error, Loader, Input, Button, RadioButtons } from '~/components'
+import { Error, Loader, Input, Button, InfoMessage } from '~/components'
 
 import { styles } from './styles'
+import { styles as commonStyles } from '../../styles'
 import { CityForecastTypes } from '../../types'
 import { forecastSlice, getWeatherByCityName } from '../../redux'
-import { Card } from '../../components'
+import { Card, RadioButtons } from '../../components'
 
 export const City: FC = () => {
   // get state and actions
@@ -23,7 +24,7 @@ export const City: FC = () => {
 
   return (
     <div css={styles.container}>
-      <h2 css={styles.subtitle}>Enter City or Country</h2>
+      <h2 css={commonStyles.subtitle}>Enter City or Country</h2>
 
       <div css={styles.search.container}>
         <RadioButtons
@@ -32,23 +33,22 @@ export const City: FC = () => {
           onSelect={(type: CityForecastTypes) =>
             dispatch(forecastSlice.actions.setCityForecastType(type))
           }
+          extendStyle={styles.search.radio}
         />
 
         <Input
-          extendStyle={styles.search.input}
           value={search}
           type="text"
           onChange={(e) => dispatch(forecastSlice.actions.setSearch(e.target.value))}
         />
         <Button
           text="Show weather"
-          extendStyle={styles.search.button}
           onClick={() => dispatch(getWeatherByCityName(search, type))}
           disabled={!search || !!error || loading}
         />
       </div>
 
-      <div css={styles.forecast}>
+      <div css={commonStyles.forecastContainer}>
         {!loading && !error && city.forecast && (
           <Fragment>
             {/* current */}
@@ -58,7 +58,7 @@ export const City: FC = () => {
 
             {/* 15 hours */}
             {type === CityForecastTypes.Hours && city.forecast.list && (
-              <div css={styles.cards}>
+              <div css={commonStyles.cards}>
                 {city.forecast.list.map((weather: any) => (
                   <Card weather={weather} type="small" key={weather.dt} format="hours" />
                 ))}
@@ -68,7 +68,7 @@ export const City: FC = () => {
         )}
 
         {!city.forecast && !loading && !error && (
-          <div css={styles.noWeather}>Location not selected yet...</div>
+          <InfoMessage text="Location not selected yet..." />
         )}
 
         {loading && <Loader type="dark" />}

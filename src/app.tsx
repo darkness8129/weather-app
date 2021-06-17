@@ -3,8 +3,8 @@ import { Switch, Route, Redirect } from 'react-router-dom'
 
 import { Header } from './components'
 import { useAppDispatch } from './redux'
-import { coordinatesSlice } from './redux/coordinatesSlice'
-import { ForecastScreen, WeatherHistoryScreen, SelectedScreen } from './screens'
+import { getCoordinates } from './redux/coodrinates'
+import { ForecastScreen, WeatherHistoryScreen } from './screens'
 import { styles } from './styles'
 
 export const App: FC = () => {
@@ -13,14 +13,7 @@ export const App: FC = () => {
 
   // get coordinates
   useEffect(() => {
-    navigator.geolocation.getCurrentPosition((position) =>
-      dispatch(
-        coordinatesSlice.actions.setCoordinates({
-          latitude: position.coords.latitude,
-          longitude: position.coords.longitude,
-        }),
-      ),
-    )
+    dispatch(getCoordinates())
   }, [])
 
   return (
@@ -34,9 +27,6 @@ export const App: FC = () => {
 
           {/* Weather  History Screen */}
           <Route path="/history" component={WeatherHistoryScreen} exact />
-
-          {/* Selected  weather Screen */}
-          <Route path="/selected" component={SelectedScreen} exact />
 
           {/* Redirect to Weather Screen */}
           <Redirect from="*" to="/forecast" />

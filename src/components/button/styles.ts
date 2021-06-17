@@ -6,7 +6,7 @@ export const styles = {
     width: 100%;
     height: 40px;
 
-    padding: 14px 0;
+    padding: 14px;
 
     display: flex;
     align-items: center;
@@ -18,6 +18,7 @@ export const styles = {
     font-size: 14px;
     line-height: 12px;
     color: ${Colors.LIGHT_1};
+    white-space: nowrap;
 
     background: ${Colors.ACCENT_1};
     border-radius: 8px;

@@ -1,5 +1,5 @@
 import { css } from '@emotion/react'
-import { Colors } from '~/emotion'
+import { Colors, breakpoints } from '~/emotion'
 
 export const styles = {
   container: css`
@@ -31,7 +31,56 @@ export const styles = {
   navigation: css`
     display: flex;
     align-items: center;
+
+    ${breakpoints.mobile} {
+      display: none;
+    }
   `,
+
+  mobile: {
+    animation: css`
+      opacity: 1;
+      margin-top: 0px;
+    `,
+
+    container: css`
+      display: none;
+      position: fixed;
+      top: 78px;
+      width: 100%;
+
+      margin-top: -400px;
+      padding: 10px 30px;
+
+      background: ${Colors.LIGHT_1};
+      transition: all 0.7s ease;
+      box-shadow: 0px 10px 5px ${Colors.LIGHT_11};
+
+      opacity: 0.5;
+      z-index: 3;
+
+      ${breakpoints.tablet} {
+        display: flex;
+        box-sizing: border-box;
+      }
+    `,
+
+    menu: css`
+      width: 100%;
+
+      ${breakpoints.mobile} {
+        display: flex;
+        flex-direction: column;
+      }
+    `,
+
+    item: css`
+      display: block;
+      margin-bottom: 20px;
+
+      font-size: 18px;
+    `,
+  },
 
   item: {
     base: css`
@@ -47,4 +96,12 @@ export const styles = {
       color: ${Colors.ACCENT_1};
     `,
   },
+
+  mobileHamburger: css`
+    display: none;
+
+    ${breakpoints.mobile} {
+      display: block;
+    }
+  `,
 }
