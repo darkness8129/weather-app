@@ -32,6 +32,8 @@ export const styles = {
 
   subtitle: css`
     color: ${Colors.DARK_2};
+    font-size: 24px;
+    line-height: 24px;
   `,
 
   forecastContainer: css`

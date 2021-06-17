@@ -8,10 +8,17 @@ export const styles = {
       min-width: 160px;
       padding: 10px 20px;
 
+      color: ${Colors.DARK_2};
       box-shadow: 0px 0px 7px ${Colors.LIGHT_11};
 
       p {
         margin: 0;
+        display: flex;
+        align-items: center;
+
+        svg {
+          margin-right: 5px;
+        }
       }
     `,
 
@@ -21,6 +28,29 @@ export const styles = {
       p {
         margin: 0 0 10px 0;
       }
+    `,
+  },
+
+  header: css`
+    & > p {
+      justify-content: center;
+    }
+  `,
+
+  main: {
+    base: css`
+      & > p {
+        justify-content: center;
+
+        &:first-of-type {
+          font-weight: bold;
+        }
+      }
+    `,
+
+    big: css`
+      font-size: 18px;
+      font-weight: 600;
     `,
   },
 
@@ -40,7 +70,7 @@ export const styles = {
       flex-direction: row;
 
       & > img {
-        margin-right: 20px;
+        width: 100px;
       }
     `,
   },
@@ -50,6 +80,7 @@ export const styles = {
 
     text-align: center;
     text-transform: uppercase;
+    font-size: 18px;
 
     font-weight: bold;
   `,

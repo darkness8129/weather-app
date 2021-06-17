@@ -1,5 +1,5 @@
 import { css } from '@emotion/react'
-// import { Colors } from '~/emotion'
+import { Colors } from '~/emotion'
 
 export const styles = {
   option: css`
@@ -7,6 +7,9 @@ export const styles = {
     align-items: center;
 
     margin-bottom: 5px;
+
+    color: ${Colors.DARK_2};
+    font-size: 16px;
 
     cursor: pointer;
     white-space: nowrap;
@@ -21,11 +24,11 @@ export const styles = {
       margin-right: 10px;
 
       border-radius: 50%;
-      border: 1px solid black;
+      border: 1px solid ${Colors.DARK_2};
     `,
 
     active: css`
-      background-color: black;
+      background-color: ${Colors.DARK_2};
     `,
   },
 }
