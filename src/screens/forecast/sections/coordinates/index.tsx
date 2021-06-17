@@ -1,9 +1,10 @@
 import { FC, Fragment, useEffect } from 'react'
 
 import { useAppDispatch, useAppSelector } from '~/redux'
-import { Error, Loader } from '~/components'
+import { Error, Loader, InfoMessage } from '~/components'
 
 import { styles } from './styles'
+import { styles as commonStyles } from '../../styles'
 import { CoordinatesForecastTypes } from '../../types'
 import { forecastSlice, getWeatherByCoordinates } from '../../redux'
 import { Card, RadioButtons } from '../../components'
@@ -33,7 +34,7 @@ export const Coordinates: FC = () => {
 
   return (
     <div css={styles.container}>
-      <h2 css={styles.subtitle}>Your forecast</h2>
+      <h2 css={commonStyles.subtitle}>Your forecast</h2>
 
       <div css={styles.buttons}>
         <RadioButtons
@@ -49,7 +50,7 @@ export const Coordinates: FC = () => {
         />
       </div>
 
-      <div css={styles.forecast}>
+      <div css={commonStyles.forecastContainer}>
         {!loading && !error && forecast && (
           <Fragment>
             {/* current */}
@@ -59,7 +60,7 @@ export const Coordinates: FC = () => {
 
             {/* 5 hours */}
             {type === CoordinatesForecastTypes.Hours && forecast.hourly && (
-              <div css={styles.cards}>
+              <div css={commonStyles.cards}>
                 {forecast.hourly.slice(0, 5).map((weather: any) => (
                   <Card weather={weather} type="small" key={weather.dt} format="hours" />
                 ))}
@@ -68,7 +69,7 @@ export const Coordinates: FC = () => {
 
             {/* 7 days */}
             {type === CoordinatesForecastTypes.Days && forecast.daily && (
-              <div css={styles.cards}>
+              <div css={commonStyles.cards}>
                 {forecast.daily.slice(0, 7).map((weather: any) => (
                   <Card weather={weather} type="small" key={weather.dt} format="days" />
                 ))}
@@ -78,9 +79,7 @@ export const Coordinates: FC = () => {
         )}
 
         {!loading && !error && !latitude && !longitude && (
-          <div css={styles.noWeatherHistory}>
-            WeatherApp needs access to your geolocation...
-          </div>
+          <InfoMessage text="WeatherApp needs access to your geolocation..." />
         )}
 
         {loading && <Loader type="dark" />}

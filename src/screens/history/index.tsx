@@ -1,7 +1,7 @@
 import { FC, useEffect } from 'react'
 
 import { useAppDispatch, useAppSelector } from '~/redux'
-import { Loader, Error, Title } from '~/components'
+import { Loader, Error, Title, InfoMessage } from '~/components'
 
 import { getWeatherHistory } from './redux'
 import { styles } from './styles'
@@ -39,9 +39,7 @@ export const WeatherHistoryScreen: FC = () => {
           {!weatherHistory && (
             <div css={styles.tableBody.center}>
               {!loading && !error && !latitude && !longitude && (
-                <div css={styles.noWeatherHistory}>
-                  WeatherApp needs access to your geolocation...
-                </div>
+                <InfoMessage text="WeatherApp needs access to your geolocation..." />
               )}
 
               {loading && <Loader type="dark" />}

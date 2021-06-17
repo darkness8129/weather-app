@@ -1,5 +1,4 @@
 import { css } from '@emotion/react'
-import { Colors } from '~/emotion'
 
 export const styles = {
   container: css`
@@ -11,10 +10,6 @@ export const styles = {
     display: flex;
     align-items: center;
     flex-direction: column;
-  `,
-
-  subtitle: css`
-    color: ${Colors.DARK_2};
   `,
 
   search: {
@@ -36,29 +31,4 @@ export const styles = {
       }
     `,
   },
-
-  noWeather: css`
-    color: ${Colors.DARK_7};
-  `,
-
-  forecast: css`
-    height: 100%;
-    min-height: 400px;
-
-    display: flex;
-    align-items: center;
-  `,
-
-  cards: css`
-    height: calc(100vh - 450px);
-    overflow: auto;
-
-    padding: 20px 0;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 20px;
-  `,
 }

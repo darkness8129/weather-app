@@ -11,7 +11,6 @@ export const styles = {
   `,
 
   table: css`
-    position: relative;
     width: 100%;
     font-family: Montserrat, sans-serif;
     font-style: normal;
@@ -39,8 +38,4 @@ export const styles = {
       align-items: center;
     `,
   },
-
-  noWeatherHistory: css`
-    color: ${Colors.DARK_7};
-  `,
 }

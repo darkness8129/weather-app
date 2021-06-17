@@ -29,4 +29,30 @@ export const styles = {
       grid-template-columns: 1fr;
     }
   `,
+
+  subtitle: css`
+    color: ${Colors.DARK_2};
+  `,
+
+  forecastContainer: css`
+    height: 100%;
+    min-height: 400px;
+
+    display: flex;
+    align-items: center;
+  `,
+
+  cards: css`
+    height: calc(100vh - 450px);
+    overflow: auto;
+
+    padding: 20px 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    gap: 20px;
+  `,
 }
