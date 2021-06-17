@@ -13,7 +13,9 @@ export const Coordinates: FC = () => {
   // get state and actions
   const dispatch = useAppDispatch()
   const { coordinates } = useAppSelector((t) => t.forecast)
-  const { coordinates: userCoordinates } = useAppSelector((t) => t.coordinates)
+  const { coordinates: userCoordinates, loading: coordinatesLoading } = useAppSelector(
+    (t) => t.coordinates,
+  )
 
   const { forecast, loading, error, type } = coordinates
   const { longitude, latitude } = userCoordinates
@@ -31,6 +33,13 @@ export const Coordinates: FC = () => {
       dispatch(getWeatherByCoordinates(userCoordinates, type))
     }
   }, [type])
+
+  // stop loading if user block geolocation access
+  useEffect(() => {
+    if (!coordinatesLoading) {
+      dispatch(forecastSlice.actions.getCoordinatesWeatherStopLoading())
+    }
+  }, [coordinatesLoading])
 
   return (
     <div css={styles.container}>
@@ -78,7 +87,7 @@ export const Coordinates: FC = () => {
           </Fragment>
         )}
 
-        {!loading && !error && !latitude && !longitude && (
+        {!loading && !coordinatesLoading && !error && !latitude && !longitude && (
           <InfoMessage text="WeatherApp needs access to your geolocation..." />
         )}
 

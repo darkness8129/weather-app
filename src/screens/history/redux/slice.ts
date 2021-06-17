@@ -3,7 +3,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 // initial state of weatherHistorySlice
 const initialState = {
   weatherHistory: null as any,
-  loading: false,
+  loading: true,
   error: '',
 }
 
@@ -30,6 +30,11 @@ export const weatherHistorySlice = createSlice({
       state.loading = false
       state.error = action.payload
       state.weatherHistory = null
+    },
+
+    // stop loading
+    stopLoading: (state) => {
+      state.loading = false
     },
   },
 })

@@ -5,7 +5,7 @@ import { createBrowserHistory } from 'history'
 import { forecastSlice } from '~/screens/forecast/redux'
 import { weatherHistorySlice } from '~/screens/history/redux'
 
-import { coordinatesSlice } from './coordinatesSlice'
+import { coordinatesSlice } from './coodrinates'
 
 // browser history
 export const history = createBrowserHistory()

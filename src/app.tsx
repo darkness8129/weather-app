@@ -3,7 +3,7 @@ import { Switch, Route, Redirect } from 'react-router-dom'
 
 import { Header } from './components'
 import { useAppDispatch } from './redux'
-import { coordinatesSlice } from './redux/coordinatesSlice'
+import { getCoordinates } from './redux/coodrinates'
 import { ForecastScreen, WeatherHistoryScreen } from './screens'
 import { styles } from './styles'
 
@@ -13,14 +13,7 @@ export const App: FC = () => {
 
   // get coordinates
   useEffect(() => {
-    navigator.geolocation.getCurrentPosition((position) =>
-      dispatch(
-        coordinatesSlice.actions.setCoordinates({
-          latitude: position.coords.latitude,
-          longitude: position.coords.longitude,
-        }),
-      ),
-    )
+    dispatch(getCoordinates())
   }, [])
 
   return (

@@ -27,8 +27,6 @@ export const Card: FC<CardProps> = ({ type, weather, format }) => {
   const formatToLocalTime = (milliseconds: number): string =>
     moment(new Date(milliseconds * 1000)).format('HH:mm')
 
-  console.log(weather)
-
   return (
     <div css={[styles.container.base, type === 'big' && styles.container.big]}>
       <div css={styles.header}>

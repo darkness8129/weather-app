@@ -7,6 +7,7 @@ const initialState = {
     latitude: null,
     longitude: null,
   } as Coordinates,
+  loading: true,
 }
 
 // Forecast screen slice
@@ -17,6 +18,11 @@ export const coordinatesSlice = createSlice({
     // set coordinates
     setCoordinates: (state, action: PayloadAction<Coordinates>) => {
       state.coordinates = action.payload
+    },
+
+    // stop coordinates loading
+    stopLoading: (state) => {
+      state.loading = false
     },
   },
 })
