@@ -13,6 +13,7 @@ export const styles = {
     grid-gap: 10px;
     align-content: center;
 
+    white-space: nowrap;
     font-weight: 600;
     font-size: 14px;
     line-height: 14px;
